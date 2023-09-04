@@ -1,43 +1,14 @@
-package pe.edu.upc.aaw.alvaroavance1.entities;
+package pe.edu.upc.aaw.alvaroavance1.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.aaw.alvaroavance1.entities.GrupoProyecto;
+
 import java.time.LocalDate;
-
-@Entity
-@Table(name = "Comunicado")
-public class Comunicado {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ComunicadoDTO {
     private int comunicado_id;
-    @Column(name = "Titulo",length = 45,nullable = false)
     private String titulo;
-    @Column(name = "Contenido",length = 50,nullable = false)
     private String contenido;
-    @Column(name = "Fecha_Creacion",nullable = false)
     private LocalDate creationFechaComunicado;
-    @ManyToOne
-    @JoinColumn(name = "GrupoDeProyecto_id")
     private GrupoProyecto grupoProyecto;
-
-/*
-    @ManyToOne
-    @JoinColumn(name = "Usuario_id")
-    private Usuario u;
-
-    @ManyToOne
-    @JoinColumn(name = "AreaDeTrabajo_id")
-    private AreaDeTrabajo at;
-*/
-
-    public Comunicado() {}
-
-    public Comunicado(int comunicado_id, String titulo, String contenido, LocalDate creationFechaComunicado, GrupoProyecto grupoProyecto) {
-        this.comunicado_id = comunicado_id;
-        this.titulo = titulo;
-        this.contenido = contenido;
-        this.creationFechaComunicado = creationFechaComunicado;
-        this.grupoProyecto = grupoProyecto;
-    }
 
     public int getComunicado_id() {
         return comunicado_id;
