@@ -1,24 +1,19 @@
 package pe.edu.upc.aaw.redcorp_application.dtos;
 
+import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
+import pe.edu.upc.aaw.redcorp_application.entities.Usuario;
+
 public class MiembroDeAreaDTO {
     private int idMiembroDeArea;
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String telefono;
-    private String cargo;
-    private String areaDeTrabajo;
+    private Usuario usuario;
+    private AreaDeTrabajo areaDeTrabajo;
 
     public MiembroDeAreaDTO() {
     }
 
-    public MiembroDeAreaDTO(int idMiembroDeArea, String nombre, String apellido, String correo, String telefono, String cargo, String areaDeTrabajo) {
+    public MiembroDeAreaDTO(int idMiembroDeArea, Usuario usuario, AreaDeTrabajo areaDeTrabajo) {
         this.idMiembroDeArea = idMiembroDeArea;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.cargo = cargo;
+        this.usuario = usuario;
         this.areaDeTrabajo = areaDeTrabajo;
     }
 
@@ -30,51 +25,19 @@ public class MiembroDeAreaDTO {
         this.idMiembroDeArea = idMiembroDeArea;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNombre(String nombreMiembroDeArea) {
-        this.nombre = nombreMiembroDeArea;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellidoMiembroDeArea) {
-        this.apellido = apellidoMiembroDeArea;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correoMiembroDeArea) {
-        this.correo = correoMiembroDeArea;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefonoMiembroDeArea) {
-        this.telefono = telefonoMiembroDeArea;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargoMiembroDeArea) {
-        this.cargo = cargoMiembroDeArea;
-    }
-
-    public String getAreaDeTrabajo() {
+    public AreaDeTrabajo getAreaDeTrabajo() {
         return areaDeTrabajo;
     }
 
-    public void setAreaDeTrabajo(String areaDeTrabajoMiembroDeArea) {
-        this.areaDeTrabajo = areaDeTrabajoMiembroDeArea;
+    public void setAreaDeTrabajo(AreaDeTrabajo areaDeTrabajo) {
+        this.areaDeTrabajo = areaDeTrabajo;
     }
 }

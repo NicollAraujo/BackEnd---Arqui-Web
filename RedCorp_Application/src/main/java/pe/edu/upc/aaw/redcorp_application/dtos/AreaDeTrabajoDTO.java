@@ -26,15 +26,15 @@ public class AreaDeTrabajoDTO {
         return nombre;
     }
 
-    public void setNombre(String nombreAreaDeTrabajo) {
-        this.nombre = nombreAreaDeTrabajo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcionAreaDeTrabajo) {
-        this.descripcion = descripcionAreaDeTrabajo;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
