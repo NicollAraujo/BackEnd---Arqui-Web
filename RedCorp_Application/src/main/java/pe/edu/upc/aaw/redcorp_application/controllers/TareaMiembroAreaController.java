@@ -21,7 +21,7 @@ public class TareaMiembroAreaController {
         TareaMiembroArea t=m.map(dto,TareaMiembroArea.class);
         iT.insert(t);
     }
-    @GetMapping("/{id}")
+    @GetMapping()
     public List<TareaMiembroAreaDTO>listar(){
         return  iT.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
