@@ -17,7 +17,7 @@ public class Usuario {
     private LocalDate fechaNacimiento;
     @ManyToOne
     @JoinColumn(name = "rolId" )
-    Rol rol;
+    private Rol rol;
 
     public Usuario() {
     }
