@@ -1,4 +1,4 @@
-package pe.edu.upc.aaw.alvaroavance1.entities;
+package pe.edu.upc.aaw.redcorp_application.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,43 +8,42 @@ import java.time.LocalDate;
 public class Comunicado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int comunicado_id;
-    @Column(name = "Titulo",length = 45,nullable = false)
+    private  int idComunicado;
+    @Column(name = "titulo",length = 50,nullable = false)
     private String titulo;
-    @Column(name = "Contenido",length = 50,nullable = false)
-    private String contenido;
-    @Column(name = "Fecha_Creacion",nullable = false)
-    private LocalDate creationFechaComunicado;
+    @Column(name = "descripcion",length = 100,nullable = false)
+    private String descripcion;
+    @Column(name = "fechaCreacion", nullable = false)
+    private LocalDate fechaCreacion;
     @ManyToOne
-    @JoinColumn(name = "GrupoDeProyecto_id")
-    private GrupoProyecto grupoProyecto;
-
-/*
+    @JoinColumn(name = "usuarioId")
+    Usuario usuario;
     @ManyToOne
-    @JoinColumn(name = "Usuario_id")
-    private Usuario u;
-
+    @JoinColumn(name = "areaDeTrabajoId")
+    AreaDeTrabajo areaDeTrabajo;
     @ManyToOne
-    @JoinColumn(name = "AreaDeTrabajo_id")
-    private AreaDeTrabajo at;
-*/
+    @JoinColumn(name = "grupoDeProyectoId")
+    GrupoDeProyecto grupoDeProyecto;
 
-    public Comunicado() {}
+    public Comunicado() {
+    }
 
-    public Comunicado(int comunicado_id, String titulo, String contenido, LocalDate creationFechaComunicado, GrupoProyecto grupoProyecto) {
-        this.comunicado_id = comunicado_id;
+    public Comunicado(int idComunicado, String titulo, String descripcion, LocalDate fechaCreacion, Usuario usuario, AreaDeTrabajo areaDeTrabajo, GrupoDeProyecto grupoDeProyecto) {
+        this.idComunicado = idComunicado;
         this.titulo = titulo;
-        this.contenido = contenido;
-        this.creationFechaComunicado = creationFechaComunicado;
-        this.grupoProyecto = grupoProyecto;
+        this.descripcion = descripcion;
+        this.fechaCreacion = fechaCreacion;
+        this.usuario = usuario;
+        this.areaDeTrabajo = areaDeTrabajo;
+        this.grupoDeProyecto = grupoDeProyecto;
     }
 
-    public int getComunicado_id() {
-        return comunicado_id;
+    public int getIdComunicado() {
+        return idComunicado;
     }
 
-    public void setComunicado_id(int comunicado_id) {
-        this.comunicado_id = comunicado_id;
+    public void setIdComunicado(int idComunicado) {
+        this.idComunicado = idComunicado;
     }
 
     public String getTitulo() {
@@ -55,27 +54,43 @@ public class Comunicado {
         this.titulo = titulo;
     }
 
-    public String getContenido() {
-        return contenido;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public LocalDate getCreationFechaComunicado() {
-        return creationFechaComunicado;
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setCreationFechaComunicado(LocalDate creationFechaComunicado) {
-        this.creationFechaComunicado = creationFechaComunicado;
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public GrupoProyecto getGrupoProyecto() {
-        return grupoProyecto;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setGrupoProyecto(GrupoProyecto grupoProyecto) {
-        this.grupoProyecto = grupoProyecto;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public AreaDeTrabajo getAreaDeTrabajo() {
+        return areaDeTrabajo;
+    }
+
+    public void setAreaDeTrabajo(AreaDeTrabajo areaDeTrabajo) {
+        this.areaDeTrabajo = areaDeTrabajo;
+    }
+
+    public GrupoDeProyecto getGrupoDeProyecto() {
+        return grupoDeProyecto;
+    }
+
+    public void setGrupoDeProyecto(GrupoDeProyecto grupoDeProyecto) {
+        this.grupoDeProyecto = grupoDeProyecto;
     }
 }

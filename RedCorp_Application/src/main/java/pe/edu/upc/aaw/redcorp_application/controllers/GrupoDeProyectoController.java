@@ -3,48 +3,49 @@ package pe.edu.upc.aaw.redcorp_application.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.aaw.redcorp_application.dtos.ComunicadoDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.GrupoDeProyectoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.ProyectoDTO;
-import pe.edu.upc.aaw.redcorp_application.entities.Comunicado;
+import pe.edu.upc.aaw.redcorp_application.entities.GrupoDeProyecto;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
-import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IComunicadoService;
+import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IGrupoDeProyectoService;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IProyectoService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/comunicados")
-public class ComunicadoController {
+@RequestMapping("/grupo-de-proyectos")
+public class GrupoDeProyectoController {
+
     @Autowired
-    private IComunicadoService iC;
+    private IGrupoDeProyectoService iG;
     @PostMapping
-    private void registrar(@RequestBody ComunicadoDTO dto)
+    private void registrar(@RequestBody GrupoDeProyectoDTO dto)
     {
         ModelMapper m = new ModelMapper();
-        Comunicado p = m.map(dto,Comunicado.class);
-        iC.insert(p);
+        GrupoDeProyecto p = m.map(dto,GrupoDeProyecto.class);
+        iG.insert(p);
     }
     @GetMapping
-    public List<ComunicadoDTO> listar()
+    public List<GrupoDeProyectoDTO> listar()
     {
-        return iC.list().stream().map(x->{
+        return iG.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
-            return m.map(x,ComunicadoDTO.class);
+            return m.map(x,GrupoDeProyectoDTO.class);
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id)
     {
-        iC.delete(id);
+        iG.delete(id);
     }
 
     @GetMapping("/{id}")
-    public ComunicadoDTO listarId(@PathVariable("id") Integer id)
+    public GrupoDeProyectoDTO listarId(@PathVariable("id") Integer id)
     {
         ModelMapper m = new ModelMapper();
 
-        ComunicadoDTO dto = m.map(iC.listId(id),ComunicadoDTO.class);
+        GrupoDeProyectoDTO dto = m.map(iG.listId(id),GrupoDeProyectoDTO.class);
         return dto;
     }
 }

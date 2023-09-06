@@ -1,21 +1,40 @@
-package pe.edu.upc.aaw.alvaroavance1.dtos;
+package pe.edu.upc.aaw.redcorp_application.dtos;
 
-import pe.edu.upc.aaw.alvaroavance1.entities.GrupoProyecto;
+import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
+import pe.edu.upc.aaw.redcorp_application.entities.GrupoDeProyecto;
+import pe.edu.upc.aaw.redcorp_application.entities.Usuario;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-public class ComunicadoDTO {
-    private int comunicado_id;
-    private String titulo;
-    private String contenido;
-    private LocalDate creationFechaComunicado;
-    private GrupoProyecto grupoProyecto;
 
-    public int getComunicado_id() {
-        return comunicado_id;
+public class ComunicadoDTO {
+    private  int idComunicado;
+    private String titulo;
+    private String descripcion;
+    private LocalDate fechaCreacion;
+    Usuario usuario;
+    AreaDeTrabajo areaDeTrabajo;
+    GrupoDeProyecto grupoDeProyecto;
+
+    public ComunicadoDTO() {
     }
 
-    public void setComunicado_id(int comunicado_id) {
-        this.comunicado_id = comunicado_id;
+    public ComunicadoDTO(int idComunicado, String titulo, String descripcion, LocalDate fechaCreacion, Usuario usuario, AreaDeTrabajo areaDeTrabajo, GrupoDeProyecto grupoDeProyecto) {
+        this.idComunicado = idComunicado;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fechaCreacion = fechaCreacion;
+        this.usuario = usuario;
+        this.areaDeTrabajo = areaDeTrabajo;
+        this.grupoDeProyecto = grupoDeProyecto;
+    }
+
+    public int getIdComunicado() {
+        return idComunicado;
+    }
+
+    public void setIdComunicado(int idComunicado) {
+        this.idComunicado = idComunicado;
     }
 
     public String getTitulo() {
@@ -26,27 +45,43 @@ public class ComunicadoDTO {
         this.titulo = titulo;
     }
 
-    public String getContenido() {
-        return contenido;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public LocalDate getCreationFechaComunicado() {
-        return creationFechaComunicado;
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
     }
 
-    public void setCreationFechaComunicado(LocalDate creationFechaComunicado) {
-        this.creationFechaComunicado = creationFechaComunicado;
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 
-    public GrupoProyecto getGrupoProyecto() {
-        return grupoProyecto;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setGrupoProyecto(GrupoProyecto grupoProyecto) {
-        this.grupoProyecto = grupoProyecto;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public AreaDeTrabajo getAreaDeTrabajo() {
+        return areaDeTrabajo;
+    }
+
+    public void setAreaDeTrabajo(AreaDeTrabajo areaDeTrabajo) {
+        this.areaDeTrabajo = areaDeTrabajo;
+    }
+
+    public GrupoDeProyecto getGrupoDeProyecto() {
+        return grupoDeProyecto;
+    }
+
+    public void setGrupoDeProyecto(GrupoDeProyecto grupoDeProyecto) {
+        this.grupoDeProyecto = grupoDeProyecto;
     }
 }
