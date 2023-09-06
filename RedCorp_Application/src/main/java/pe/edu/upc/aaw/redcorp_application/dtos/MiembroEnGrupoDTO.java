@@ -1,16 +1,17 @@
 package pe.edu.upc.aaw.redcorp_application.dtos;
 
+import pe.edu.upc.aaw.redcorp_application.entities.GrupoDeProyecto;
 import pe.edu.upc.aaw.redcorp_application.entities.MiembroDeArea;
 
 public class MiembroEnGrupoDTO {
         private  int idMiembroEnGrupo;
         private MiembroDeArea miembroDeArea;
-        private MiembroDeArea grupoDeProyecto;
+        private GrupoDeProyecto grupoDeProyecto;
 
         public MiembroEnGrupoDTO() {
         }
 
-        public MiembroEnGrupoDTO(int idMiembroEnGrupo, MiembroDeArea miembroDeArea, MiembroDeArea grupoDeProyecto) {
+        public MiembroEnGrupoDTO(int idMiembroEnGrupo, MiembroDeArea miembroDeArea, GrupoDeProyecto grupoDeProyecto) {
             this.idMiembroEnGrupo = idMiembroEnGrupo;
             this.miembroDeArea = miembroDeArea;
             this.grupoDeProyecto = grupoDeProyecto;
@@ -32,11 +33,11 @@ public class MiembroEnGrupoDTO {
         this.miembroDeArea = miembroDeArea;
     }
 
-    public MiembroDeArea getGrupoDeProyecto() {
+    public GrupoDeProyecto getGrupoDeProyecto() {
         return grupoDeProyecto;
     }
 
-    public void setGrupoDeProyecto(MiembroDeArea grupoDeProyecto) {
+    public void setGrupoDeProyecto(GrupoDeProyecto grupoDeProyecto) {
         this.grupoDeProyecto = grupoDeProyecto;
     }
 }

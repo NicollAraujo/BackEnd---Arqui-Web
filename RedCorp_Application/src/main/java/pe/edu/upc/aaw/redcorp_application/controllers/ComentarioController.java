@@ -20,7 +20,7 @@ public class ComentarioController {
     private IComentarioService commentService;
 
     @PostMapping
-    public void registrar(@RequestBody TareaDTO dto){
+    public void registrar(@RequestBody ComentarioDTO dto){
         ModelMapper m = new ModelMapper();
         Comentario c = m.map(dto,Comentario.class);
         commentService.insert(c);

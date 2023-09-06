@@ -1,5 +1,6 @@
 package pe.edu.upc.aaw.redcorp_application.dtos;
 import pe.edu.upc.aaw.redcorp_application.entities.MiembroDeArea;
+import pe.edu.upc.aaw.redcorp_application.entities.Tarea;
 import pe.edu.upc.aaw.redcorp_application.entities.TareaMiembroArea;
 
 import javax.persistence.JoinColumn;
@@ -8,13 +9,13 @@ import javax.persistence.ManyToOne;
 public class TareaMiembroAreaDTO {
     private  int idTareaMiembroArea;
     private MiembroDeArea miembroDeArea;
-    private TareaMiembroArea tareaMiembroArea;
+    private Tarea tarea;
 
     public TareaMiembroAreaDTO(){}
-    public TareaMiembroAreaDTO(int idTareaMiembroArea, MiembroDeArea miembroDeArea,TareaMiembroArea tareaMiembroArea){
+    public TareaMiembroAreaDTO(int idTareaMiembroArea, MiembroDeArea miembroDeArea,Tarea tarea){
         this.idTareaMiembroArea=idTareaMiembroArea;
         this.miembroDeArea=miembroDeArea;
-        this.tareaMiembroArea=tareaMiembroArea;
+        this.tarea=tarea;
     }
 
     public int getIdTareaMiembroArea() {
@@ -33,11 +34,11 @@ public class TareaMiembroAreaDTO {
         this.miembroDeArea = miembroDeArea;
     }
 
-    public TareaMiembroArea getTareaMiembroArea() {
-        return tareaMiembroArea;
+    public Tarea getTarea() {
+        return tarea;
     }
 
-    public void setTareaMiembroArea(TareaMiembroArea tareaMiembroArea) {
-        this.tareaMiembroArea = tareaMiembroArea;
+    public void setTarea(Tarea tarea) {
+        this.tarea = tarea;
     }
 }
