@@ -1,5 +1,7 @@
 package pe.edu.upc.aaw.redcorp_application.dtos;
 
+import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
+
 import javax.persistence.Column;
 import java.time.LocalDate;
 
@@ -8,13 +10,16 @@ public class GrupoDeProyectoDTO {
     private String nombre;
     private LocalDate fechaCreacion;
 
+    Proyecto proyecto;
+
     public GrupoDeProyectoDTO() {
     }
 
-    public GrupoDeProyectoDTO(int idGrupoDeProyecto, String nombre, LocalDate fechaCreacion) {
+    public GrupoDeProyectoDTO(int idGrupoDeProyecto, String nombre, LocalDate fechaCreacion, Proyecto proyecto) {
         this.idGrupoDeProyecto = idGrupoDeProyecto;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
+        this.proyecto = proyecto;
     }
 
     public int getIdGrupoDeProyecto() {
@@ -39,5 +44,13 @@ public class GrupoDeProyectoDTO {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Proyecto getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
     }
 }
