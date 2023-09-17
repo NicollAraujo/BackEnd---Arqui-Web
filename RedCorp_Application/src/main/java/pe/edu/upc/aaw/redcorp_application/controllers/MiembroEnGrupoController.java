@@ -22,6 +22,7 @@ public class MiembroEnGrupoController {
         iM.insert(mi);
     }
     @GetMapping
+
     public  List<MiembroEnGrupoDTO>listar(){
      return iM.list().stream().map(x->{
          ModelMapper m=new ModelMapper();

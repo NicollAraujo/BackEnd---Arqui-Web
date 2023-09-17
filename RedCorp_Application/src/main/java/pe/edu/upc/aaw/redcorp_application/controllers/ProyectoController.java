@@ -2,6 +2,7 @@ package pe.edu.upc.aaw.redcorp_application.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.ProyectoDTO;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
@@ -23,6 +24,7 @@ public class ProyectoController {
         iP.insert(p);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<ProyectoDTO> listar()
     {
         return iP.list().stream().map(x->{
