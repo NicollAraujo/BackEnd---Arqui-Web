@@ -9,4 +9,5 @@ public interface IComunicadoService {
     public List<Comunicado> list();
     public void delete(int idComunicado );
     public Comunicado listId(int idComunicado);
+    public List<String[]> CantidaddeComunicadosporGrupos();
 }
