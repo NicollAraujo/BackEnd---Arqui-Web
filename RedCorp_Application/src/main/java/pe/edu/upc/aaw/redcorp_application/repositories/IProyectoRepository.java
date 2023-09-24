@@ -10,10 +10,14 @@ import java.util.List;
 
 @Repository
 public interface IProyectoRepository extends JpaRepository<Proyecto,Integer> {
-    @Query(value = "SELECT u.nombre, pr.nombre AS nombreProyecto, r.descripcion, pr.idProyecto\n" +
-            "FROM Usuario u\n" +
-            "INNER JOIN Rol r ON u.rol.idRol = r.idRol\n" +
-            "INNER JOIN Proyecto pr ON pr.usuario.idUsuario = u.idUsuario\n" +
-            "WHERE u.rol.idRol = 1 AND pr.idProyecto :idProyecto",nativeQuery = true)
+    @Query(value = "SELECT u.nombre,pr.nombre as nombre_proyecto,r.descripcion,pr.id_proyecto FROM usuario u \n" +
+            " inner join rol r\n" +
+            " on u.rol_id = r.id_rol\n" +
+            " inner join proyecto pr\n" +
+            " on pr.usuario_id = u.id_usuario\n" +
+            " where u.rol_id = 1 and pr.id_proyecto=:idProyecto",nativeQuery = true)
     public List<String[]> userProyectsDescription(@Param("idProyecto") int idProyecto);
+
+
+
 }

@@ -1,6 +1,7 @@
 package pe.edu.upc.aaw.redcorp_application.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
 import pe.edu.upc.aaw.redcorp_application.repositories.IProyectoRepository;
@@ -33,7 +34,9 @@ public class ProyectoImplements implements IProyectoService {
     }
 
     @Override
-    public List<String[]> userProyectDescription() {
-        return null;
+    public List<String[]> userDetailsProyect(int idProyecto) {
+        return iP.userProyectsDescription(idProyecto);
     }
+
+
 }

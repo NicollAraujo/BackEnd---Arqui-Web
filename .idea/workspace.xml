@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="651ad0ac-a9ce-4e61-9c41-6da4a9a0b635" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/RedCorp_Application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RedCorp_Application/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="651ad0ac-a9ce-4e61-9c41-6da4a9a0b635" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev-alvaro",
+    "git-widget-placeholder": "dev-jose",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1695557131929</updated>
-      <workItem from="1695557133646" duration="6164000" />
+      <workItem from="1695557133646" duration="7068000" />
     </task>
     <servers />
   </component>
