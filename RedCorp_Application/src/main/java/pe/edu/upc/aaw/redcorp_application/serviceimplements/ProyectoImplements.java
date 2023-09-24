@@ -31,4 +31,9 @@ public class ProyectoImplements implements IProyectoService {
     public Proyecto listId(int idProyecto) {
         return iP.findById(idProyecto).orElse(new Proyecto());
     }
+
+    @Override
+    public List<String[]> userProyectDescription() {
+        return null;
+    }
 }

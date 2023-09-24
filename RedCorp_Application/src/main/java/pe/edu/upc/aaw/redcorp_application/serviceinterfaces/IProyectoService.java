@@ -11,4 +11,6 @@ public interface IProyectoService {
     public void delete(int idProyecto );
 
     public Proyecto listId(int idProyecto);
+
+    public List<String[]>userProyectDescription();
 }
