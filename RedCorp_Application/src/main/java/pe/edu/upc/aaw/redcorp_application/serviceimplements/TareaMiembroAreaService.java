@@ -29,4 +29,9 @@ public class TareaMiembroAreaService implements ITareaMiembroAreaService {
     public TareaMiembroArea listId(int idTareaMiembroArea){
         return  iT.findById(idTareaMiembroArea).orElse(new TareaMiembroArea());
     }
+
+    @Override
+    public List<String[]> memberstask(int idmiembro) {
+        return iT.taskmember(idmiembro);
+    }
 }
