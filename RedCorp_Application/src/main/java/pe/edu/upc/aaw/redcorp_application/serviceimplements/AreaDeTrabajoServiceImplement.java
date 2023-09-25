@@ -32,4 +32,10 @@ public class AreaDeTrabajoServiceImplement implements IAreaDeTrabajoService {
     public AreaDeTrabajo listId(int idAreaDeTrabajo) {
         return iA.findById(idAreaDeTrabajo).orElse(new AreaDeTrabajo());
     }
+
+    @Override
+    public List<String[]> listAreasPerUser(int idAreaDeTrabajo) {
+        return (List<String[]>) iA.userAreasOfWork(idAreaDeTrabajo);
+    }
+
 }
