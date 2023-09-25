@@ -16,6 +16,6 @@ public interface IAreaDeTrabajoRepository extends JpaRepository<AreaDeTrabajo,In
         "FROM area_de_trabajo A " +
         "JOIN miembro_de_area Ma ON A.id_area_de_trabajo = Ma.area_de_trabajo_id " +
         "WHERE Ma.usuario_id = :id_usuario", nativeQuery = true)
-public List<String> userAreasOfWork(@Param("id_usuario") int idUsuario);
+    public List<String[]> userAreasOfWork(@Param("id_usuario") int idUsuario);
 
 }

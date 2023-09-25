@@ -35,7 +35,7 @@ public class AreaDeTrabajoServiceImplement implements IAreaDeTrabajoService {
 
     @Override
     public List<String[]> listAreasPerUser(int idAreaDeTrabajo) {
-        return (List<String[]>) iA.userAreasOfWork(idAreaDeTrabajo);
+        return iA.userAreasOfWork(idAreaDeTrabajo);
     }
 
 }
