@@ -9,4 +9,4 @@ public interface IAreaDeTrabajoService {
     List<AreaDeTrabajo> list();
     void delete(int idAreaDeTrabajo);
     AreaDeTrabajo listId(int idAreaDeTrabajo);
-}
+    List<String[]> listAreasPerUser(int idAreaDeTrabajo);}
