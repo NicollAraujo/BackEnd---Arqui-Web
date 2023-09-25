@@ -9,5 +9,4 @@ class RedCorpApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
