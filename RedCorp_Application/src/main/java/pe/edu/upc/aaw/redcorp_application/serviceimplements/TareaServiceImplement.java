@@ -33,4 +33,9 @@ public class TareaServiceImplement  implements ITareaService {
     public Tarea listId(int idTarea) {
         return  tareaRepository.findById(idTarea).orElse(new Tarea());
     }
+
+    @Override
+    public List<String[]> descripcionTareaByProyectoName() {
+        return tareaRepository.descripcionTareaByProyectoName();
+    }
 }
