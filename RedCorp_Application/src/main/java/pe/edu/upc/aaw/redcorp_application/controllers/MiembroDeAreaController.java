@@ -24,6 +24,7 @@ public class MiembroDeAreaController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<MiembroDeAreaDTO> listar() {
         return iM.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -36,6 +37,7 @@ public class MiembroDeAreaController {
         iM.delete(id);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public MiembroDeAreaDTO listarId(@PathVariable("id") Integer id)
     {
         ModelMapper m = new ModelMapper();

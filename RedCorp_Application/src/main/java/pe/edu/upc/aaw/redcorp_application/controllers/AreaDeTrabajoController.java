@@ -17,6 +17,7 @@ public class AreaDeTrabajoController {
     private IAreaDeTrabajoService iA;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody AreaDeTrabajoDTO dto) {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajo a = m.map(dto, AreaDeTrabajo.class);
@@ -24,6 +25,7 @@ public class AreaDeTrabajoController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<AreaDeTrabajoDTO> listar() {
         return iA.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -32,11 +34,13 @@ public class AreaDeTrabajoController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {
         iA.delete(id);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public AreaDeTrabajoDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajoDTO dto = m.map(iA.listId(id), AreaDeTrabajoDTO.class);
