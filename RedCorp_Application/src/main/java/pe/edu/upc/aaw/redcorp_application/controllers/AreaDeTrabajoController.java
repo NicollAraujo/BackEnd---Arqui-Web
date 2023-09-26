@@ -53,12 +53,12 @@ public class AreaDeTrabajoController {
     @GetMapping("/AreasUser/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<UsuarioAreaDeTrabajoDTO> mostrarAreasDeTrabajoUsuario(@PathVariable("id") int id) {
-        List<String[]> lista = iA.listAreasPerUser(id);
+        List<Object[]> lista = iA.userAreasOfWork(id);
         List<UsuarioAreaDeTrabajoDTO> listaAreas = new ArrayList<>();
-        for (String[] x : lista) {
+        for (Object[] data : lista) {
             UsuarioAreaDeTrabajoDTO dto = new UsuarioAreaDeTrabajoDTO();
-            dto.setIdAreaDeTrabajo(Integer.parseInt(x[0]));
-            dto.setNombreAreaTrabajo(x[1]);
+            dto.setIdAreaDeTrabajo((int) data[0]);
+            dto.setNombreAreaTrabajo((String) data[1]);
             listaAreas.add(dto);
         }
         return listaAreas;
