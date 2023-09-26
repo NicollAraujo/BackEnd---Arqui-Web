@@ -12,7 +12,6 @@ public interface ITareaRepository extends JpaRepository<Tarea,Integer> {
 
     @Query(value = "select t.descripcion as descripcion_tarea,p.nombre as nombre_proyecto\n" +
             "from tarea t inner join proyecto p\n" +
-            "on t.id_tarea=p.id_proyecto\n" +
-            "group by t.descripcion, p.nombre", nativeQuery = true)
+            "on t.proyecto_id=p.id_proyecto", nativeQuery = true)
     public List<String[]> descripcionTareaByProyectoName();
 }
