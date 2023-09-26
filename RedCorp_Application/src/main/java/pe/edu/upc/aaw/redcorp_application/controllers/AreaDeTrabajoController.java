@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.AreaDeTrabajoDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.UsuarioAreaDeTrabajoDTO;
 import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IAreaDeTrabajoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +48,19 @@ public class AreaDeTrabajoController {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajoDTO dto = m.map(iA.listId(id), AreaDeTrabajoDTO.class);
         return dto;
+    }
+
+    @GetMapping("/AreasUser/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<UsuarioAreaDeTrabajoDTO> mostrarAreasDeTrabajoUsuario(@PathVariable("id") int id) {
+        List<Object[]> lista = iA.userAreasOfWork(id);
+        List<UsuarioAreaDeTrabajoDTO> listaAreas = new ArrayList<>();
+        for (Object[] data : lista) {
+            UsuarioAreaDeTrabajoDTO dto = new UsuarioAreaDeTrabajoDTO();
+            dto.setIdAreaDeTrabajo((int) data[0]);
+            dto.setNombreAreaTrabajo((String) data[1]);
+            listaAreas.add(dto);
+        }
+        return listaAreas;
     }
 }
