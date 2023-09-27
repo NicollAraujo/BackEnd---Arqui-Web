@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.AreaDeTrabajoDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.TareaDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.UsuarioAreaDeTrabajoDTO;
 import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
+import pe.edu.upc.aaw.redcorp_application.entities.Tarea;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IAreaDeTrabajoService;
 
 import java.util.ArrayList;
@@ -35,7 +37,13 @@ public class AreaDeTrabajoController {
             return m.map(x, AreaDeTrabajoDTO.class);
         }).collect(Collectors.toList());
     }
-
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody AreaDeTrabajoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        AreaDeTrabajo t = m.map(dto, AreaDeTrabajo.class);
+        iA.insert(t);
+    }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {

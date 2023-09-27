@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.RolDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.TareaMiembroAreaDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.UsuarioDTO;
 import pe.edu.upc.aaw.redcorp_application.entities.Rol;
+import pe.edu.upc.aaw.redcorp_application.entities.TareaMiembroArea;
 import pe.edu.upc.aaw.redcorp_application.entities.Usuario;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IRolService;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IUsuarioService;
@@ -20,7 +22,7 @@ public class UsuarioController {
     @Autowired
     private IUsuarioService iU;
     @PostMapping
-    private void registrar(@RequestBody UsuarioDTO dto)
+    public void registrar(@RequestBody UsuarioDTO dto)
     {
         ModelMapper m = new ModelMapper();
         Usuario r = m.map(dto,Usuario.class);
@@ -34,6 +36,13 @@ public class UsuarioController {
             ModelMapper m = new ModelMapper();
             return m.map(x,UsuarioDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody UsuarioDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Usuario t = m.map(dto, Usuario.class);
+        iU.insert(t);
     }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")

@@ -11,16 +11,22 @@ public class UsuarioDTO {
     private String correo;
     private LocalDate fechaNacimiento;
     private Rol rol;
+    private  String userName;
+    private String contrasena;
+    private Boolean enabled;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, Rol rol) {
+    public UsuarioDTO(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, Rol rol, String userName, String contrasena, Boolean enabled) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.correo = correo;
         this.fechaNacimiento = fechaNacimiento;
         this.rol = rol;
+        this.userName = userName;
+        this.contrasena = contrasena;
+        this.enabled = enabled;
     }
 
     public Long getIdUsuario() {
@@ -61,5 +67,29 @@ public class UsuarioDTO {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

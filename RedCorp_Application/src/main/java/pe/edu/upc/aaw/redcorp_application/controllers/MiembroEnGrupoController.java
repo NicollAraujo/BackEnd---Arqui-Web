@@ -2,8 +2,11 @@ package pe.edu.upc.aaw.redcorp_application.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.redcorp_application.dtos.MiembroDeAreaDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.MiembroEnGrupoDTO;
+import pe.edu.upc.aaw.redcorp_application.entities.MiembroDeArea;
 import pe.edu.upc.aaw.redcorp_application.entities.MiembroEnGrupo;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IMiembroEnGrupoService;
 
@@ -16,13 +19,19 @@ public class MiembroEnGrupoController {
     @Autowired
     private IMiembroEnGrupoService iM;
     @PostMapping
-    private void registrar(@RequestBody MiembroEnGrupoDTO dto){
+    public void registrar(@RequestBody MiembroEnGrupoDTO dto){
         ModelMapper m=new ModelMapper();
         MiembroEnGrupo mi=m.map(dto,MiembroEnGrupo.class);
         iM.insert(mi);
     }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody MiembroEnGrupoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        MiembroEnGrupo t = m.map(dto, MiembroEnGrupo.class);
+        iM.insert(t);
+    }
     @GetMapping
-
     public  List<MiembroEnGrupoDTO>listar(){
      return iM.list().stream().map(x->{
          ModelMapper m=new ModelMapper();

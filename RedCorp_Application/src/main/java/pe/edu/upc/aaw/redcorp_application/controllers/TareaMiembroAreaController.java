@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.MiembrosTareasDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.RolDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.TareaMiembroAreaDTO;
+import pe.edu.upc.aaw.redcorp_application.entities.Rol;
 import pe.edu.upc.aaw.redcorp_application.entities.TareaMiembroArea;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.ITareaMiembroAreaService;
 
@@ -19,7 +21,7 @@ public class TareaMiembroAreaController {
     @Autowired
     private ITareaMiembroAreaService iT;
     @PostMapping
-    private void registrar(@RequestBody TareaMiembroAreaDTO dto){
+    public void registrar(@RequestBody TareaMiembroAreaDTO dto){
         ModelMapper m=new ModelMapper();
         TareaMiembroArea t=m.map(dto,TareaMiembroArea.class);
         iT.insert(t);
@@ -40,6 +42,13 @@ public class TareaMiembroAreaController {
         ModelMapper m=new ModelMapper();
         TareaMiembroAreaDTO dto=m.map(iT.listId(id),TareaMiembroAreaDTO.class);
         return  dto;
+    }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody TareaMiembroAreaDTO dto) {
+        ModelMapper m = new ModelMapper();
+        TareaMiembroArea t = m.map(dto, TareaMiembroArea.class);
+        iT.insert(t);
     }
     @GetMapping("/taskmember/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")

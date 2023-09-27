@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.redcorp_application.dtos.ProyectoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.RolDTO;
+import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
 import pe.edu.upc.aaw.redcorp_application.entities.Rol;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IRolService;
 
@@ -15,27 +17,35 @@ import java.util.stream.Collectors;
 @RequestMapping("/roles")
 public class RolController {
     @Autowired
-    private IRolService iR;
+    private IRolService iRest;
     @PostMapping
-    private void registrar(@RequestBody RolDTO dto)
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void registrar(@RequestBody RolDTO dto)
     {
         ModelMapper m = new ModelMapper();
         Rol r = m.map(dto,Rol.class);
-        iR.insert(r);
+        iRest.insert(r);
     }
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<RolDTO> listar()
     {
-        return iR.list().stream().map(x->{
+        return iRest.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
             return m.map(x,RolDTO.class);
         }).collect(Collectors.toList());
     }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody RolDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Rol t = m.map(dto, Rol.class);
+        iRest.insert(t);
+    }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id)
     {
-        iR.delete(id);
+        iRest.delete(id);
     }
 
     @GetMapping("/{id}")
@@ -43,7 +53,7 @@ public class RolController {
     {
         ModelMapper m = new ModelMapper();
 
-        RolDTO dto = m.map(iR.listId(id),RolDTO.class);
+        RolDTO dto = m.map(iRest.listId(id),RolDTO.class);
         return dto;
     }
 }

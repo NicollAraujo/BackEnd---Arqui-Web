@@ -4,9 +4,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.redcorp_application.dtos.AreaDeTrabajoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.ComunicadoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.ComunicadosGrupodeProyectoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.ProyectoDTO;
+import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
 import pe.edu.upc.aaw.redcorp_application.entities.Comunicado;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IComunicadoService;
@@ -22,7 +24,7 @@ public class ComunicadoController {
     @Autowired
     private IComunicadoService iC;
     @PostMapping
-    private void registrar(@RequestBody ComunicadoDTO dto)
+    public void registrar(@RequestBody ComunicadoDTO dto)
     {
         ModelMapper m = new ModelMapper();
         Comunicado p = m.map(dto,Comunicado.class);
@@ -50,6 +52,14 @@ public class ComunicadoController {
 
         ComunicadoDTO dto = m.map(iC.listId(id),ComunicadoDTO.class);
         return dto;
+    }
+
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody ComunicadoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Comunicado t = m.map(dto, Comunicado.class);
+        iC.insert(t);
     }
 
     @GetMapping("/cantidadGP")

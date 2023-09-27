@@ -4,8 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.aaw.redcorp_application.dtos.MiembroEnGrupoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.ProyectoDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.UsuarioProyectoDTO;
+import pe.edu.upc.aaw.redcorp_application.entities.MiembroEnGrupo;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IProyectoService;
 
@@ -19,7 +21,7 @@ public class ProyectoController {
     @Autowired
     private IProyectoService iP;
     @PostMapping
-    private void registrar(@RequestBody ProyectoDTO dto)
+    public void registrar(@RequestBody ProyectoDTO dto)
     {
         ModelMapper m = new ModelMapper();
         Proyecto p = m.map(dto,Proyecto.class);
@@ -33,6 +35,13 @@ public class ProyectoController {
             ModelMapper m = new ModelMapper();
             return m.map(x,ProyectoDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void modificar(@RequestBody ProyectoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Proyecto t = m.map(dto, Proyecto.class);
+        iP.insert(t);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id)
