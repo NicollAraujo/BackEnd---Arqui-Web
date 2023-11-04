@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/grupo-de-proyectos")
+@RequestMapping("/api/grupo-de-proyectos")
 public class GrupoDeProyectoController {
 
     @Autowired

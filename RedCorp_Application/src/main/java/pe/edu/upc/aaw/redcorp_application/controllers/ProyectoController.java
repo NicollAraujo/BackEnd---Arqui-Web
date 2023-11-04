@@ -11,12 +11,13 @@ import pe.edu.upc.aaw.redcorp_application.entities.MiembroEnGrupo;
 import pe.edu.upc.aaw.redcorp_application.entities.Proyecto;
 import pe.edu.upc.aaw.redcorp_application.serviceinterfaces.IProyectoService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/proyectos")
+@RequestMapping("/api/proyectos")
 public class ProyectoController {
     @Autowired
     private IProyectoService iP;
@@ -59,7 +60,7 @@ public class ProyectoController {
     }
 
     @GetMapping("/userProyect/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<UsuarioProyectoDTO> mostrarUsuarioProyecto(@PathVariable("id") int id) {
         List<String[]> lista = iP.userDetailsProyect(id);
         List<UsuarioProyectoDTO> listaUsuarios = new ArrayList<>();
@@ -70,6 +71,7 @@ public class ProyectoController {
             dto.setNombreProyecto(data[1]);
             dto.setRolUsuario(data[2]);
             dto.setIdProyecto(Integer.parseInt(data[3]));
+            dto.setFechaCreacion(LocalDate.parse(data[4]));
             listaUsuarios.add(dto);
 
         }

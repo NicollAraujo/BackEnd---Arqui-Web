@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/tareaMiembroArea")
+@RequestMapping("/api/tareaMiembroArea")
 public class TareaMiembroAreaController {
     @Autowired
     private ITareaMiembroAreaService iT;

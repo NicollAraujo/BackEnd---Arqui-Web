@@ -14,4 +14,6 @@ public interface IAreaDeTrabajoService {
     AreaDeTrabajo listId(int idAreaDeTrabajo);
 
     List<Object[]> userAreasOfWork(int idUsuario);
+
+    List<Object[]> listUserAreas();
 }

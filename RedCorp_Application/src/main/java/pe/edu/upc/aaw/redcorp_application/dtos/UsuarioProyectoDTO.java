@@ -1,11 +1,16 @@
 package pe.edu.upc.aaw.redcorp_application.dtos;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class UsuarioProyectoDTO {
 
     public  int idProyecto;
     public String nombreUsuario;
     public String nombreProyecto;
     public String rolUsuario;
+
+    private LocalDate fechaCreacion;
 
     public UsuarioProyectoDTO() {
     }
@@ -40,5 +45,13 @@ public class UsuarioProyectoDTO {
 
     public void setRolUsuario(String rolUsuario) {
         this.rolUsuario = rolUsuario;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.aaw.redcorp_application.dtos.AreaDeTrabajoDTO;
+import pe.edu.upc.aaw.redcorp_application.dtos.PanelUserAreaDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.TareaDTO;
 import pe.edu.upc.aaw.redcorp_application.dtos.UsuarioAreaDeTrabajoDTO;
 import pe.edu.upc.aaw.redcorp_application.entities.AreaDeTrabajo;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/areasdetrabajo")
+@RequestMapping("/api/areasdetrabajo")
 public class AreaDeTrabajoController {
     @Autowired
     private IAreaDeTrabajoService iA;
@@ -70,5 +71,20 @@ public class AreaDeTrabajoController {
             listaAreas.add(dto);
         }
         return listaAreas;
+    }
+
+    @GetMapping("/panel")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<PanelUserAreaDTO> listarUsuariosTrabajos() {
+        List<Object[]> lista = iA.listUserAreas();
+        List<PanelUserAreaDTO> listaUsuarios = new ArrayList<>();
+        for (Object[] data : lista) {
+            PanelUserAreaDTO dto = new PanelUserAreaDTO();
+            dto.setNombre((String) data[0]);
+            dto.setCorreo((String) data[1]);
+            dto.setArea((String) data[2]);
+            listaUsuarios.add(dto);
+        }
+        return listaUsuarios;
     }
 }

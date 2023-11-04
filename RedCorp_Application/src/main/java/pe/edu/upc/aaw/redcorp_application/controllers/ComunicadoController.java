@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/comunicados")
+@RequestMapping("/api/comunicados")
 public class ComunicadoController {
     @Autowired
     private IComunicadoService iC;

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/miembroEnGrupo")
+@RequestMapping("/api/miembroEnGrupo")
 public class MiembroEnGrupoController {
     @Autowired
     private IMiembroEnGrupoService iM;
