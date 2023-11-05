@@ -7,6 +7,7 @@ public class MiembroDeAreaDTO {
     private int idMiembroDeArea;
     private Usuario usuario;
     private AreaDeTrabajo areaDeTrabajo;
+    private Boolean active;
 
     public MiembroDeAreaDTO() {
     }

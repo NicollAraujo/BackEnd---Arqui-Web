@@ -12,6 +12,8 @@ public class ComunicadoDTO {
     private String titulo;
     private String descripcion;
     private LocalDate fechaCreacion;
+
+    private Boolean active;
     Usuario usuario;
     AreaDeTrabajo areaDeTrabajo;
     GrupoDeProyecto grupoDeProyecto;

@@ -11,6 +11,7 @@ public class ProyectoDTO {
     private String descripcion;
     private Usuario usuario;
     private LocalDate fechaCreacion;
+    private Boolean active;
 
     public ProyectoDTO() {
     }

@@ -10,6 +10,7 @@ public class TareaMiembroAreaDTO {
     private  int idTareaMiembroArea;
     private MiembroDeArea miembroDeArea;
     private Tarea tarea;
+    private Boolean active;
 
     public TareaMiembroAreaDTO(){}
     public TareaMiembroAreaDTO(int idTareaMiembroArea, MiembroDeArea miembroDeArea,Tarea tarea){

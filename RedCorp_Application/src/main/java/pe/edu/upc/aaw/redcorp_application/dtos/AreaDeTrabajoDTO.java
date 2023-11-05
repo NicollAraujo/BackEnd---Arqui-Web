@@ -4,14 +4,16 @@ public class AreaDeTrabajoDTO {
     private int idAreaDeTrabajo;
     private String nombre;
     private String descripcion;
+    private Boolean active;
 
     public AreaDeTrabajoDTO() {
     }
 
-    public AreaDeTrabajoDTO(int idAreaDeTrabajo, String nombre, String descripcion) {
+    public AreaDeTrabajoDTO(int idAreaDeTrabajo, String nombre, String descripcion, Boolean active) {
         this.idAreaDeTrabajo = idAreaDeTrabajo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.active = active;
     }
 
     public int getIdAreaDeTrabajo() {
@@ -36,5 +38,13 @@ public class AreaDeTrabajoDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

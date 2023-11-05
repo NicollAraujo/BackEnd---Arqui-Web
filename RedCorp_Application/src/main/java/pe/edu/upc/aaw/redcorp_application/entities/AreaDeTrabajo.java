@@ -9,18 +9,22 @@ public class AreaDeTrabajo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAreaDeTrabajo;
-    @Column(name = "nombre",length = 50,nullable = false )
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
-    @Column(name = "descripcion",length = 50,nullable = false)
+    @Column(name = "descripcion", length = 50, nullable = false)
     private String descripcion;
+
+    @Column(name = "active",nullable = false)
+    private Boolean active;
 
     public AreaDeTrabajo() {
     }
 
-    public AreaDeTrabajo(int idAreaDeTrabajo, String nombre, String descripcion) {
+    public AreaDeTrabajo(int idAreaDeTrabajo, String nombre, String descripcion, Boolean active) {
         this.idAreaDeTrabajo = idAreaDeTrabajo;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.active = active;
     }
 
     public int getIdAreaDeTrabajo() {
@@ -45,5 +49,13 @@ public class AreaDeTrabajo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

@@ -8,6 +8,7 @@ public class UsuarioAreaDeTrabajoDTO {
 
     public int idAreaDeTrabajo;
     public String nombreAreaTrabajo;
+    private Boolean active;
 
     public UsuarioAreaDeTrabajoDTO() {
     }

@@ -4,6 +4,7 @@ public class TareaProyectoDTO {
 
     private String descripcionTarea;
     private String nombreProyecto;
+    private Boolean active;
 
     public String getDescripcionTarea() {
         return descripcionTarea;

@@ -13,15 +13,18 @@ public class Rol {
     private  int idRol;
     @Column(name = "descripcion",length = 50,nullable = false)
     private String descripcion;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
 
 
 
     public Rol() {
     }
 
-    public Rol(int idRol, String descripcion) {
+    public Rol(int idRol, String descripcion, Boolean active) {
         this.idRol = idRol;
         this.descripcion = descripcion;
+        this.active = active;
     }
 
     public int getIdRol() {
@@ -40,5 +43,11 @@ public class Rol {
         this.descripcion = descripcion;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
 
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 }

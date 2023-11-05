@@ -7,6 +7,7 @@ public class MiembroEnGrupoDTO {
         private  int idMiembroEnGrupo;
         private MiembroDeArea miembroDeArea;
         private GrupoDeProyecto grupoDeProyecto;
+        private Boolean active;
 
         public MiembroEnGrupoDTO() {
         }

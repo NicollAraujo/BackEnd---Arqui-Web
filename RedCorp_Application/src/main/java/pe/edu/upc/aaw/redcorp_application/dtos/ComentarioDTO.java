@@ -7,6 +7,8 @@ public class ComentarioDTO {
     private String comentario;
     Tarea tarea;
 
+    private Boolean active;
+
     public int getIdComentario() {
         return idComentario;
     }

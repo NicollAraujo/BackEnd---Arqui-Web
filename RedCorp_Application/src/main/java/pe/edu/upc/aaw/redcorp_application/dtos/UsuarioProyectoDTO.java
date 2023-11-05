@@ -9,6 +9,7 @@ public class UsuarioProyectoDTO {
     public String nombreUsuario;
     public String nombreProyecto;
     public String rolUsuario;
+    private Boolean active;
 
     private LocalDate fechaCreacion;
 
@@ -45,6 +46,14 @@ public class UsuarioProyectoDTO {
 
     public void setRolUsuario(String rolUsuario) {
         this.rolUsuario = rolUsuario;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public LocalDate getFechaCreacion() {

@@ -8,13 +8,10 @@ import javax.persistence.Id;
 public class RolDTO {
     private  int idRol;
     private String descripcion;
+    private Boolean active;
 
     public RolDTO() {
-    }
 
-    public RolDTO(int idRol, String descripcion) {
-        this.idRol = idRol;
-        this.descripcion = descripcion;
     }
 
     public int getIdRol() {
@@ -31,5 +28,13 @@ public class RolDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

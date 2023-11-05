@@ -9,6 +9,7 @@ public class GrupoDeProyectoDTO {
     private int idGrupoDeProyecto;
     private String nombre;
     private LocalDate fechaCreacion;
+    private Boolean active;
 
     Proyecto proyecto;
 

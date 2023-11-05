@@ -13,6 +13,7 @@ public class TareaDTO {
     GrupoDeProyecto grupoDeProyecto;
     Proyecto proyecto;
     private LocalDate fechaCreacion;
+    private Boolean active;
 
     public int getIdTarea() {
         return idTarea;

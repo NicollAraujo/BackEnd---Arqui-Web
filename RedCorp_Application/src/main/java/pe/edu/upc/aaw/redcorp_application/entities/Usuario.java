@@ -26,11 +26,13 @@ public class Usuario {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "rolId" )
     private Rol rol;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
 
     public Usuario() {
     }
 
-    public Usuario(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, String userName, String contrasena, Boolean enabled, Rol rol) {
+    public Usuario(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, String userName, String contrasena, Boolean enabled, Rol rol, Boolean active) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.correo = correo;
@@ -39,6 +41,7 @@ public class Usuario {
         this.contrasena = contrasena;
         this.enabled = enabled;
         this.rol = rol;
+        this.active = active;
     }
 
     public Long getIdUsuario() {
@@ -103,5 +106,13 @@ public class Usuario {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

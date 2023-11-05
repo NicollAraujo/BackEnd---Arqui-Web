@@ -13,12 +13,13 @@ public class UsuarioDTO {
     private Rol rol;
     private  String userName;
     private String contrasena;
-    private Boolean enabled;
+
+    private Boolean active;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, Rol rol, String userName, String contrasena, Boolean enabled) {
+    public UsuarioDTO(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, Rol rol, String userName, String contrasena, Boolean active) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.correo = correo;
@@ -26,7 +27,7 @@ public class UsuarioDTO {
         this.rol = rol;
         this.userName = userName;
         this.contrasena = contrasena;
-        this.enabled = enabled;
+        this.active = active;
     }
 
     public Long getIdUsuario() {
@@ -85,11 +86,11 @@ public class UsuarioDTO {
         this.contrasena = contrasena;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

@@ -4,6 +4,7 @@ public class MiembrosTareasDTO {
     public int idTarea;
     public String nombre;
     public String descripcion;
+    private Boolean active;
 
     public MiembrosTareasDTO() {
     }

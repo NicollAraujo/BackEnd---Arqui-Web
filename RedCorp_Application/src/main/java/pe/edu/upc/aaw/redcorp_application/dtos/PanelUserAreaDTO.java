@@ -6,6 +6,7 @@ public class PanelUserAreaDTO {
     private String area;
 
 
+
     public PanelUserAreaDTO() {
     }
 
