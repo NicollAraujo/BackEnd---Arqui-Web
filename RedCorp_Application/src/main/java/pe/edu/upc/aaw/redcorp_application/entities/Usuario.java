@@ -23,7 +23,7 @@ public class Usuario {
     @Column(name = "contrasena",length = 200)
     private String contrasena;
     private Boolean enabled;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "rolId" )
     private Rol rol;
     @Column(name = "active",nullable = false)
