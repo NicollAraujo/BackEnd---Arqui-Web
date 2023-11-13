@@ -9,6 +9,9 @@ public class ComentarioDTO {
 
     private Boolean active;
 
+    public ComentarioDTO() {
+    }
+
     public int getIdComentario() {
         return idComentario;
     }
@@ -31,5 +34,13 @@ public class ComentarioDTO {
 
     public void setTarea(Tarea tarea) {
         this.tarea = tarea;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

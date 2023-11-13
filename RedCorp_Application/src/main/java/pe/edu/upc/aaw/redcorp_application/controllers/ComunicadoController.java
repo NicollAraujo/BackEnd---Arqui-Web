@@ -31,7 +31,7 @@ public class ComunicadoController {
         iC.insert(p);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<ComunicadoDTO> listar()
     {
         return iC.list().stream().map(x->{

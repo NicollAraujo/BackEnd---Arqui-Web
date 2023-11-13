@@ -5,10 +5,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "Tarea")
-public class Tarea {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int idTarea;
+public class Tarea {@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private  int idTarea;
     @Column(name = "nombre",length = 50,nullable = false)
     private String nombre;
     @Column(name = "descripcion",length = 100,nullable = false)
@@ -25,6 +24,7 @@ public class Tarea {
     private LocalDate fechaCreacion;
     @Column(name = "active",nullable = false)
     private Boolean active;
+
 
     public Tarea() {
     }

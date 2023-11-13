@@ -16,10 +16,11 @@ public class GrupoDeProyectoDTO {
     public GrupoDeProyectoDTO() {
     }
 
-    public GrupoDeProyectoDTO(int idGrupoDeProyecto, String nombre, LocalDate fechaCreacion, Proyecto proyecto) {
+    public GrupoDeProyectoDTO(int idGrupoDeProyecto, String nombre, LocalDate fechaCreacion, Boolean active, Proyecto proyecto) {
         this.idGrupoDeProyecto = idGrupoDeProyecto;
         this.nombre = nombre;
         this.fechaCreacion = fechaCreacion;
+        this.active = active;
         this.proyecto = proyecto;
     }
 
@@ -45,6 +46,14 @@ public class GrupoDeProyectoDTO {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Proyecto getProyecto() {

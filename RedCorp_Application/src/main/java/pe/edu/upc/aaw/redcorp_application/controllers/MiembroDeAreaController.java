@@ -20,6 +20,7 @@ public class MiembroDeAreaController {
     private IMiembroDeAreaService iM;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void registrar(@RequestBody MiembroDeAreaDTO dto) {
         ModelMapper m = new ModelMapper();
         MiembroDeArea ma = m.map(dto, MiembroDeArea.class);
@@ -27,14 +28,14 @@ public class MiembroDeAreaController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void modificar(@RequestBody MiembroDeAreaDTO dto) {
         ModelMapper m = new ModelMapper();
         MiembroDeArea t = m.map(dto, MiembroDeArea.class);
         iM.insert(t);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<MiembroDeAreaDTO> listar() {
         return iM.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -43,11 +44,12 @@ public class MiembroDeAreaController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void eliminar(@PathVariable("id") Integer id) {
         iM.delete(id);
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public MiembroDeAreaDTO listarId(@PathVariable("id") Integer id)
     {
         ModelMapper m = new ModelMapper();

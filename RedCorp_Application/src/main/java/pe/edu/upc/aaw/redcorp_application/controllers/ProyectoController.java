@@ -22,6 +22,7 @@ public class ProyectoController {
     @Autowired
     private IProyectoService iP;
     @PostMapping
+
     public void registrar(@RequestBody ProyectoDTO dto)
     {
         ModelMapper m = new ModelMapper();
@@ -29,7 +30,7 @@ public class ProyectoController {
         iP.insert(p);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<ProyectoDTO> listar()
     {
         return iP.list().stream().map(x->{
@@ -51,6 +52,7 @@ public class ProyectoController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public ProyectoDTO listarId(@PathVariable("id") Integer id)
     {
         ModelMapper m = new ModelMapper();

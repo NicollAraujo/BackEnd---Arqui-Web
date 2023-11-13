@@ -5,6 +5,7 @@ public class ComentarioTareaDTO {
     private String cantidadComentario;
     private String nombreTarea;
 
+
     public String getCantidadComentario() {
         return cantidadComentario;
     }

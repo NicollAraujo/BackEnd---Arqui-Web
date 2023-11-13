@@ -21,16 +21,6 @@ public class ComunicadoDTO {
     public ComunicadoDTO() {
     }
 
-    public ComunicadoDTO(int idComunicado, String titulo, String descripcion, LocalDate fechaCreacion, Usuario usuario, AreaDeTrabajo areaDeTrabajo, GrupoDeProyecto grupoDeProyecto) {
-        this.idComunicado = idComunicado;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.fechaCreacion = fechaCreacion;
-        this.usuario = usuario;
-        this.areaDeTrabajo = areaDeTrabajo;
-        this.grupoDeProyecto = grupoDeProyecto;
-    }
-
     public int getIdComunicado() {
         return idComunicado;
     }
@@ -61,6 +51,14 @@ public class ComunicadoDTO {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Usuario getUsuario() {

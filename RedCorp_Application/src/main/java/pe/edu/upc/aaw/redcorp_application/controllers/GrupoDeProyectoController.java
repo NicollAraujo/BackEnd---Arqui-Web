@@ -38,6 +38,7 @@ public class GrupoDeProyectoController {
         iG.insert(t);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<GrupoDeProyectoDTO> listar()
     {
         return iG.list().stream().map(x->{

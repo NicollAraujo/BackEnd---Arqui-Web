@@ -12,11 +12,12 @@ public class MiembroEnGrupoDTO {
         public MiembroEnGrupoDTO() {
         }
 
-        public MiembroEnGrupoDTO(int idMiembroEnGrupo, MiembroDeArea miembroDeArea, GrupoDeProyecto grupoDeProyecto) {
-            this.idMiembroEnGrupo = idMiembroEnGrupo;
-            this.miembroDeArea = miembroDeArea;
-            this.grupoDeProyecto = grupoDeProyecto;
-        }
+    public MiembroEnGrupoDTO(int idMiembroEnGrupo, MiembroDeArea miembroDeArea, GrupoDeProyecto grupoDeProyecto, Boolean active) {
+        this.idMiembroEnGrupo = idMiembroEnGrupo;
+        this.miembroDeArea = miembroDeArea;
+        this.grupoDeProyecto = grupoDeProyecto;
+        this.active = active;
+    }
 
     public int getIdMiembroEnGrupo() {
         return idMiembroEnGrupo;
@@ -40,5 +41,13 @@ public class MiembroEnGrupoDTO {
 
     public void setGrupoDeProyecto(GrupoDeProyecto grupoDeProyecto) {
         this.grupoDeProyecto = grupoDeProyecto;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

@@ -21,7 +21,7 @@ public class TareaController {
     private ITareaService tareaService;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void registrar(@RequestBody TareaDTO dto){
         ModelMapper m = new ModelMapper();
         Tarea t = m.map(dto,Tarea.class);
@@ -30,7 +30,7 @@ public class TareaController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<TareaDTO> listar()
     {
         return tareaService.list().stream().map(x->{
@@ -40,21 +40,21 @@ public class TareaController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void modificar(@RequestBody TareaDTO dto) {
         ModelMapper m = new ModelMapper();
         Tarea t = m.map(dto, Tarea.class);
         tareaService.insert(t);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void eliminar(@PathVariable("id") Integer id)
     {
         tareaService.delete(id);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public TareaDTO listarId(@PathVariable("id") Integer id)
     {
         ModelMapper m = new ModelMapper();
@@ -64,7 +64,7 @@ public class TareaController {
     }
 
     @GetMapping("/descripciontarea")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<TareaProyectoDTO> descriptionTaskNameProyect() {
         List<String[]> lista = tareaService.descripcionTareaByProyectoName();
         List<TareaProyectoDTO> listaDTO = new ArrayList<>();

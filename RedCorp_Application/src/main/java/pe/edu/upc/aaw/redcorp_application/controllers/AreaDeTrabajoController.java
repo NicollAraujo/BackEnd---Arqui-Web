@@ -23,7 +23,7 @@ public class AreaDeTrabajoController {
     private IAreaDeTrabajoService iA;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void registrar(@RequestBody AreaDeTrabajoDTO dto) {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajo a = m.map(dto, AreaDeTrabajo.class);
@@ -31,7 +31,7 @@ public class AreaDeTrabajoController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<AreaDeTrabajoDTO> listar() {
         return iA.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -39,20 +39,20 @@ public class AreaDeTrabajoController {
         }).collect(Collectors.toList());
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void modificar(@RequestBody AreaDeTrabajoDTO dto) {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajo t = m.map(dto, AreaDeTrabajo.class);
         iA.insert(t);
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public void eliminar(@PathVariable("id") Integer id) {
         iA.delete(id);
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public AreaDeTrabajoDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
         AreaDeTrabajoDTO dto = m.map(iA.listId(id), AreaDeTrabajoDTO.class);
@@ -60,7 +60,7 @@ public class AreaDeTrabajoController {
     }
 
     @GetMapping("/AreasUser/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('EMPLO')")
     public List<UsuarioAreaDeTrabajoDTO> mostrarAreasDeTrabajoUsuario(@PathVariable("id") int id) {
         List<Object[]> lista = iA.userAreasOfWork(id);
         List<UsuarioAreaDeTrabajoDTO> listaAreas = new ArrayList<>();
