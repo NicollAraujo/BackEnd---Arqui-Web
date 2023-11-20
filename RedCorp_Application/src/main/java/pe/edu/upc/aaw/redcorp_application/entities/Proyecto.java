@@ -18,16 +18,19 @@ public class Proyecto {
     private Usuario usuario;
     @Column (name = "fechaCreacion",nullable = false)
     private LocalDate fechaCreacion;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
 
     public Proyecto() {
     }
 
-    public Proyecto(int idProyecto, String nombre, String descripcion, Usuario usuario, LocalDate fechaCreacion) {
+    public Proyecto(int idProyecto, String nombre, String descripcion, Usuario usuario, LocalDate fechaCreacion, Boolean active) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.usuario = usuario;
         this.fechaCreacion = fechaCreacion;
+        this.active = active;
     }
 
     public int getIdProyecto() {
@@ -68,5 +71,13 @@ public class Proyecto {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

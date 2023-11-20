@@ -22,23 +22,24 @@ public class Usuario {
     private  String userName;
     @Column(name = "contrasena",length = 200)
     private String contrasena;
-    private Boolean enabled;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "rolId" )
     private Rol rol;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
 
     public Usuario() {
     }
 
-    public Usuario(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, String userName, String contrasena, Boolean enabled, Rol rol) {
+    public Usuario(Long idUsuario, String nombre, String correo, LocalDate fechaNacimiento, String userName, String contrasena, Rol rol, Boolean active) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.correo = correo;
         this.fechaNacimiento = fechaNacimiento;
         this.userName = userName;
         this.contrasena = contrasena;
-        this.enabled = enabled;
         this.rol = rol;
+        this.active = active;
     }
 
     public Long getIdUsuario() {
@@ -89,19 +90,19 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
     public Rol getRol() {
         return rol;
     }
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

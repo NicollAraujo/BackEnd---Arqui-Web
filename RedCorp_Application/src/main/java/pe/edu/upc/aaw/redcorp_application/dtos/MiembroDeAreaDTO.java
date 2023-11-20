@@ -7,14 +7,16 @@ public class MiembroDeAreaDTO {
     private int idMiembroDeArea;
     private Usuario usuario;
     private AreaDeTrabajo areaDeTrabajo;
+    private Boolean active;
 
     public MiembroDeAreaDTO() {
     }
 
-    public MiembroDeAreaDTO(int idMiembroDeArea, Usuario usuario, AreaDeTrabajo areaDeTrabajo) {
+    public MiembroDeAreaDTO(int idMiembroDeArea, Usuario usuario, AreaDeTrabajo areaDeTrabajo, Boolean active) {
         this.idMiembroDeArea = idMiembroDeArea;
         this.usuario = usuario;
         this.areaDeTrabajo = areaDeTrabajo;
+        this.active = active;
     }
 
     public int getIdMiembroDeArea() {
@@ -39,5 +41,13 @@ public class MiembroDeAreaDTO {
 
     public void setAreaDeTrabajo(AreaDeTrabajo areaDeTrabajo) {
         this.areaDeTrabajo = areaDeTrabajo;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

@@ -6,7 +6,14 @@ import java.util.List;
 
 public interface IAreaDeTrabajoService {
     void insert(AreaDeTrabajo areaDeTrabajo);
+
     List<AreaDeTrabajo> list();
+
     void delete(int idAreaDeTrabajo);
+
     AreaDeTrabajo listId(int idAreaDeTrabajo);
+
+    List<Object[]> userAreasOfWork(int idUsuario);
+
+    List<Object[]> listUserAreas();
 }

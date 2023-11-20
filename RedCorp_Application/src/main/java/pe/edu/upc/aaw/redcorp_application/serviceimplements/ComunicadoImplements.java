@@ -33,4 +33,9 @@ public class ComunicadoImplements implements IComunicadoService {
     public Comunicado listId(int idComunicado) {
         return iC.findById(idComunicado).orElse(new Comunicado());
     }
+
+    @Override
+    public List<String[]> CantidaddeComunicadosporGrupos() {
+        return iC.CantidaddeComunicadosporGrupos();
+    }
 }

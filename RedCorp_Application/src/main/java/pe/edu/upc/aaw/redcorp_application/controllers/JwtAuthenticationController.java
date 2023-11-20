@@ -18,7 +18,6 @@ import pe.edu.upc.aaw.redcorp_application.serviceimplements.JwtUserDetailsServic
 
 //Clase 3
 @RestController
-@CrossOrigin
 public class JwtAuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;

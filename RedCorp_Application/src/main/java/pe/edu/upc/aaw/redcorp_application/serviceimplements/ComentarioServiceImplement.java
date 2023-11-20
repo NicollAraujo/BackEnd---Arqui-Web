@@ -36,4 +36,10 @@ public class ComentarioServiceImplement implements IComentarioService {
     public Comentario listId(int idComentario) {
         return  commentRepository.findById(idComentario).orElse(new Comentario());
     }
+
+    @Override
+    public List<String[]> idCommentNameTask() {
+        return commentRepository.idCommentNameTask();
+    }
+
 }

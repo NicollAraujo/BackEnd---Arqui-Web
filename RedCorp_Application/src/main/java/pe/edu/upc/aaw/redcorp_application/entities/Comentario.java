@@ -10,6 +10,8 @@ public class Comentario {
     private  int idComentario;
     @Column(name = "comentario",length = 100,nullable = false)
     private String comentario;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
     @ManyToOne
     @JoinColumn(name = "tareaId")
     Tarea tarea;
@@ -17,9 +19,10 @@ public class Comentario {
     public Comentario() {
     }
 
-    public Comentario(int idComentario, String comentario, Tarea tarea) {
+    public Comentario(int idComentario, String comentario, Boolean active, Tarea tarea) {
         this.idComentario = idComentario;
         this.comentario = comentario;
+        this.active = active;
         this.tarea = tarea;
     }
 
@@ -37,6 +40,14 @@ public class Comentario {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Tarea getTarea() {

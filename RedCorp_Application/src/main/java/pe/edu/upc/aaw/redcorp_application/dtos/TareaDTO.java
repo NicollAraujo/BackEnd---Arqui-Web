@@ -13,6 +13,10 @@ public class TareaDTO {
     GrupoDeProyecto grupoDeProyecto;
     Proyecto proyecto;
     private LocalDate fechaCreacion;
+    private Boolean active;
+
+    public TareaDTO() {
+    }
 
     public int getIdTarea() {
         return idTarea;
@@ -68,5 +72,13 @@ public class TareaDTO {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

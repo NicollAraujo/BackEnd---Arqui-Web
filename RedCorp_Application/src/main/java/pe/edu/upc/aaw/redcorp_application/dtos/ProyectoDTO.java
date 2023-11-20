@@ -11,16 +11,18 @@ public class ProyectoDTO {
     private String descripcion;
     private Usuario usuario;
     private LocalDate fechaCreacion;
+    private Boolean active;
 
     public ProyectoDTO() {
     }
 
-    public ProyectoDTO(int idProyecto, String nombre, String descripcion, Usuario usuario, LocalDate fechaCreacion) {
+    public ProyectoDTO(int idProyecto, String nombre, String descripcion, Usuario usuario, LocalDate fechaCreacion, Boolean active) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.usuario = usuario;
         this.fechaCreacion = fechaCreacion;
+        this.active = active;
     }
 
     public int getIdProyecto() {
@@ -61,5 +63,13 @@ public class ProyectoDTO {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

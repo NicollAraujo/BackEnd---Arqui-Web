@@ -5,10 +5,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "Tarea")
-public class Tarea {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int idTarea;
+public class Tarea {@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private  int idTarea;
     @Column(name = "nombre",length = 50,nullable = false)
     private String nombre;
     @Column(name = "descripcion",length = 100,nullable = false)
@@ -23,11 +22,14 @@ public class Tarea {
     Proyecto proyecto;
     @Column(name = "fechaCracion",nullable = false)
     private LocalDate fechaCreacion;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
+
 
     public Tarea() {
     }
 
-    public Tarea(int idTarea, String nombre, String descripcion, LocalDate fechaLimite, GrupoDeProyecto grupoDeProyecto, Proyecto proyecto, LocalDate fechaCreacion) {
+    public Tarea(int idTarea, String nombre, String descripcion, LocalDate fechaLimite, GrupoDeProyecto grupoDeProyecto, Proyecto proyecto, LocalDate fechaCreacion, Boolean active) {
         this.idTarea = idTarea;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -35,6 +37,7 @@ public class Tarea {
         this.grupoDeProyecto = grupoDeProyecto;
         this.proyecto = proyecto;
         this.fechaCreacion = fechaCreacion;
+        this.active = active;
     }
 
     public int getIdTarea() {
@@ -91,5 +94,13 @@ public class Tarea {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

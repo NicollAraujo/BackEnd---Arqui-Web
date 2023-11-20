@@ -15,6 +15,8 @@ public class Comunicado {
     private String descripcion;
     @Column(name = "fechaCreacion", nullable = false)
     private LocalDate fechaCreacion;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
     @ManyToOne
     @JoinColumn(name = "usuarioId")
     Usuario usuario;
@@ -28,11 +30,12 @@ public class Comunicado {
     public Comunicado() {
     }
 
-    public Comunicado(int idComunicado, String titulo, String descripcion, LocalDate fechaCreacion, Usuario usuario, AreaDeTrabajo areaDeTrabajo, GrupoDeProyecto grupoDeProyecto) {
+    public Comunicado(int idComunicado, String titulo, String descripcion, LocalDate fechaCreacion, Boolean active, Usuario usuario, AreaDeTrabajo areaDeTrabajo, GrupoDeProyecto grupoDeProyecto) {
         this.idComunicado = idComunicado;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
+        this.active = active;
         this.usuario = usuario;
         this.areaDeTrabajo = areaDeTrabajo;
         this.grupoDeProyecto = grupoDeProyecto;
@@ -68,6 +71,14 @@ public class Comunicado {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public Usuario getUsuario() {

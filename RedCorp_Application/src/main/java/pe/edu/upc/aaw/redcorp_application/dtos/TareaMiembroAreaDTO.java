@@ -10,12 +10,17 @@ public class TareaMiembroAreaDTO {
     private  int idTareaMiembroArea;
     private MiembroDeArea miembroDeArea;
     private Tarea tarea;
+    private Boolean active;
 
-    public TareaMiembroAreaDTO(){}
-    public TareaMiembroAreaDTO(int idTareaMiembroArea, MiembroDeArea miembroDeArea,Tarea tarea){
-        this.idTareaMiembroArea=idTareaMiembroArea;
-        this.miembroDeArea=miembroDeArea;
-        this.tarea=tarea;
+
+    public TareaMiembroAreaDTO() {
+    }
+
+    public TareaMiembroAreaDTO(int idTareaMiembroArea, MiembroDeArea miembroDeArea, Tarea tarea, Boolean active) {
+        this.idTareaMiembroArea = idTareaMiembroArea;
+        this.miembroDeArea = miembroDeArea;
+        this.tarea = tarea;
+        this.active = active;
     }
 
     public int getIdTareaMiembroArea() {
@@ -40,5 +45,13 @@ public class TareaMiembroAreaDTO {
 
     public void setTarea(Tarea tarea) {
         this.tarea = tarea;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

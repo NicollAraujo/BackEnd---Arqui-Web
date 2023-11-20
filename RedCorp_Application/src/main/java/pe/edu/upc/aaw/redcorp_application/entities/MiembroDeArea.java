@@ -11,6 +11,8 @@ public class MiembroDeArea {
     @ManyToOne
     @JoinColumn(name = "usuarioId")
     Usuario usuario;
+    @Column(name = "active",nullable = false)
+    private Boolean active;
     @ManyToOne
     @JoinColumn(name = "areaDeTrabajoId")
     AreaDeTrabajo areaDeTrabajo;
@@ -18,9 +20,10 @@ public class MiembroDeArea {
     public MiembroDeArea() {
     }
 
-    public MiembroDeArea(int idMiembroDeArea, Usuario usuario, AreaDeTrabajo areaDeTrabajo) {
+    public MiembroDeArea(int idMiembroDeArea, Usuario usuario, Boolean active, AreaDeTrabajo areaDeTrabajo) {
         this.idMiembroDeArea = idMiembroDeArea;
         this.usuario = usuario;
+        this.active = active;
         this.areaDeTrabajo = areaDeTrabajo;
     }
 
@@ -38,6 +41,14 @@ public class MiembroDeArea {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     public AreaDeTrabajo getAreaDeTrabajo() {
